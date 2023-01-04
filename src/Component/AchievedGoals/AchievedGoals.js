@@ -77,7 +77,7 @@ function AchievedGoals() {
       <p className=" text-md">{item.title}</p>
       <p>{item.tutor}</p>
       {item.price.map((p) => (
-        <p>
+        <p key={p.id}>
           <span>{p.now}</span>{" "}
           <span>
             <s>{p.prev}</s>
