@@ -1,15 +1,41 @@
 import React from "react";
 import { useRef } from "react";
 import classes from "./SignInForm.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignInForm() {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+  const history = useNavigate();
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("submitted");
+
+    const enteredSignEmail = emailInputRef.current.value;
+    const enteredSignPassword = passwordInputRef.current.value;
+
+    console.log(enteredSignEmail);
+    console.log(enteredSignPassword);
+
+    fetch("http://143.198.82.73:8000/v1/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: enteredSignEmail,
+        password: enteredSignPassword,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        history("/backendPage");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (

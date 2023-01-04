@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import classes from "./SignUpForm.module.css";
-import { Link } from "react-router-dom";
+
 import { useState } from "react";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
