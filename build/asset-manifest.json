@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8137488b.css",
+    "main.js": "/static/js/main.71e7795a.js",
+    "static/js/787.07d828f8.chunk.js": "/static/js/787.07d828f8.chunk.js",
+    "static/media/viewslide2.jpg": "/static/media/viewslide2.b262b55fd60adf7e7834.jpg",
+    "static/media/viewslide1.jpg": "/static/media/viewslide1.348bff37d9126f93093f.jpg",
+    "static/media/team.jpg": "/static/media/team.c1514047fe265125060a.jpg",
+    "static/media/instructor.jpg": "/static/media/instructor.a9610581a014f2c7d3ec.jpg",
+    "static/media/studentview6.jpg": "/static/media/studentview6.85519f7e02c0eb8bd1e3.jpg",
+    "static/media/studentview5.jpg": "/static/media/studentview5.921b03e95023ef0160b9.jpg",
+    "static/media/app6.svg": "/static/media/app6.7baac257b6fd9c586729223d4faf2c15.svg",
+    "static/media/studentview3.jpg": "/static/media/studentview3.da6cd329bd36294b823b.jpg",
+    "static/media/app5.svg": "/static/media/app5.333fcf270b8ac9ada0904ca67d4e3748.svg",
+    "static/media/app1.svg": "/static/media/app1.851232196db5353737792779ff2e2d7e.svg",
+    "static/media/logo-ub.svg": "/static/media/logo-ub.6ce089a0dc91366110364df69bbf21e2.svg",
+    "static/media/app4.svg": "/static/media/app4.fa94feba41041b3a8d275ac645d1bb0f.svg",
+    "static/media/logo-udemy-inverted.svg": "/static/media/logo-udemy-inverted.bc61c6989dd94540b76689ec30e1b7f5.svg",
+    "static/media/app2.svg": "/static/media/app2.acf3a11365e0977cfd03e5cf3f939107.svg",
+    "static/media/logo.svg": "/static/media/logo.ac64b9eb547dc3795f53173b290203d9.svg",
+    "static/media/app3.svg": "/static/media/app3.51e72d73f82eb149957bc4c07e1af330.svg",
+    "index.html": "/index.html",
+    "static/media/quote.svg": "/static/media/quote.fe11278aa05caa6c32f63fd220483042.svg",
+    "main.8137488b.css.map": "/static/css/main.8137488b.css.map",
+    "main.71e7795a.js.map": "/static/js/main.71e7795a.js.map",
+    "787.07d828f8.chunk.js.map": "/static/js/787.07d828f8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8137488b.css",
+    "static/js/main.71e7795a.js"
+  ]
+}

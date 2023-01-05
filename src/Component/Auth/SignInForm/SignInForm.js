@@ -1,7 +1,8 @@
 import React from "react";
-import { useRef } from "react";
+import { useRef, useContext, useState } from "react";
 import classes from "./SignInForm.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../../store/auth-context";
 
 function SignInForm() {
   const emailInputRef = useRef();
@@ -9,8 +10,14 @@ function SignInForm() {
 
   const history = useNavigate();
 
+  const authCtx = useContext(AuthContext);
+
+  const [isLoding, setIsLoading] = useState(false);
+
   const submitHandler = (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const enteredSignEmail = emailInputRef.current.value;
     const enteredSignPassword = passwordInputRef.current.value;
@@ -28,13 +35,22 @@ function SignInForm() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        history("/backendPage");
+      .then((response) => {
+        setIsLoading(false);
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.json().then((data) => {
+            console.log(data.message);
+          });
+        }
       })
-      .catch((error) => {
-        console.error("Error:", error);
+      .then((data) => {
+        authCtx.login(data);
+
+        console.log(data.access_token);
+
+        history("/backendPage");
       });
   };
 
@@ -77,6 +93,7 @@ function SignInForm() {
           {isLoding && <p>Sending Request...</p>} */}
 
           <button type="submit">Login</button>
+          {isLoding && <p>Sending Request....</p>}
         </div>
       </form>
     </section>
