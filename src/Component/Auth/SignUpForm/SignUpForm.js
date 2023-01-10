@@ -155,7 +155,7 @@ function SignUpForm() {
           {/* <button>{isLogin ? 'Login' : 'Create Account'}</button>
           {isLoding && <p>Sending Request...</p>} */}
 
-          <button type="submit">Create new account</button>
+          <button type="submit">Register</button>
         </div>
       </form>
     </section>
