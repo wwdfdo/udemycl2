@@ -1,12 +1,15 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import classes from "./SignUpForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 function SignUpForm() {
+  const history = useNavigate();
+
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const emailInputRef = useRef();
@@ -57,6 +60,7 @@ function SignUpForm() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        history("/login");
       })
       .catch((error) => {
         console.error("Error:", error);

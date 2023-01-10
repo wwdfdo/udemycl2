@@ -3,8 +3,8 @@ import "./MegaMenu.css";
 
 function MegaMenu() {
   return (
-    <div className="group inline-block z-100">
-      <button className="outline-none focus:outline-none  px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+    <div className="group z-100 h-[100%] flex items-center">
+      <button className="outline-none focus:outline-none  px-3 py-1 bg-white rounded-sm flex items-center min-w-60">
         <span className="pr-1 font-semibold flex-1">Categories</span>
         <span>
           <svg
@@ -19,19 +19,19 @@ function MegaMenu() {
       </button>
       <ul
         className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
-  transition duration-150 ease-in-out origin-top min-w-32 z-[100]"
+  transition duration-150 ease-in-out top-20 min-w-32 z-[100]"
       >
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Programming</li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
-        <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Programming</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">DevOps</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Programming</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">DevOps</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Programming</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">DevOps</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Programming</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">DevOps</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Programming</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">DevOps</li>
+        <li className="rounded-sm relative px-8 py-1 hover:bg-gray-100">
           <button className="w-full text-left flex items-center outline-none focus:outline-none">
             <span className="pr-1 flex-1">Langauges</span>
             <span className="mr-auto">
@@ -51,8 +51,8 @@ function MegaMenu() {
   min-w-32
   "
           >
-            <li className="px-3 py-1 hover:bg-gray-100">Javascript</li>
-            <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+            <li className="px-8 py-1 hover:bg-gray-100">Javascript</li>
+            <li className="rounded-sm relative px-8 py-1 hover:bg-gray-100">
               <button className="w-full text-left flex items-center outline-none focus:outline-none">
                 <span className="pr-1 flex-1">Python</span>
                 <span className="mr-auto">
@@ -72,15 +72,15 @@ function MegaMenu() {
       min-w-32
       "
               >
-                <li className="px-3 py-1 hover:bg-gray-100">2.7</li>
-                <li className="px-3 py-1 hover:bg-gray-100">3+</li>
+                <li className="px-8 py-1 hover:bg-gray-100">2.7</li>
+                <li className="px-8 py-1 hover:bg-gray-100">3+</li>
               </ul>
             </li>
-            <li className="px-3 py-1 hover:bg-gray-100">Go</li>
-            <li className="px-3 py-1 hover:bg-gray-100">Rust</li>
+            <li className="px-8 py-1 hover:bg-gray-100">Go</li>
+            <li className="px-8 py-1 hover:bg-gray-100">Rust</li>
           </ul>
         </li>
-        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Testing</li>
+        <li className="rounded-sm px-8 py-1 hover:bg-gray-100">Testing</li>
       </ul>
     </div>
   );

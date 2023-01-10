@@ -18,12 +18,12 @@ function Header() {
   };
 
   return (
-    <div className="flex px-[1%] items-center min-h-[80px] border-b-2 shadow text-sm font-sm">
+    <div className="flex px-[1%] items-center h-[80px] border-b-2 shadow text-sm font-sm">
       <Link to="/">
         <img src={logo} className="w-[100px] pr-3 cursor-pointer" alt="" />
       </Link>
 
-      <div className="px-3 cursor-pointer">
+      <div className="px-3 cursor-pointer h-[100%]">
         <MegaMenu />
       </div>
       <div className=" flex-1">
