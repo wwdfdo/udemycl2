@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef, useContext, useState } from "react";
 import classes from "./SignInForm.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../store/auth-context";
 
 function SignInForm() {
@@ -56,25 +56,8 @@ function SignInForm() {
 
   return (
     <section className={classes.auth}>
-      <h1>Login</h1>
+      <h1 className="text-2xl font-bold">Login</h1>
       <form onSubmit={submitHandler}>
-        {/* {!isLogin && (
-          <div className={classes.control}>
-            <label htmlFor="email">First Name</label>
-            <input
-              type="text"
-              id="firstname"
-              required
-              ref={firstnameInputRef}
-            />
-          </div>
-        )} */}
-        {/* {!isLogin && (
-          <div className={classes.control}>
-            <label htmlFor="email">Last Name</label>
-            <input type="text" id="lastname" required ref={lastnameInputRef} />
-          </div>
-        )} */}
         <div className={classes.control}>
           <label htmlFor="email">Your Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
@@ -89,11 +72,8 @@ function SignInForm() {
           />
         </div>
         <div className={classes.actions}>
-          {/* <button>{isLogin ? 'Login' : 'Create Account'}</button>
-          {isLoding && <p>Sending Request...</p>} */}
-
           <button type="submit">Login</button>
-          {isLoding && <p>Sending Request....</p>}
+          {isLoding && <p className="text-white">Sending Request....</p>}
         </div>
       </form>
     </section>

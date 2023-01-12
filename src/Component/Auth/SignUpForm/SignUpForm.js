@@ -4,9 +4,9 @@ import classes from "./SignUpForm.module.css";
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-const firstnameRegex = /^[A-z][A-z0-9-_]{3,23}$/;
-const lastnameRegex = /^[A-z][A-z0-9-_]{3,23}$/;
-const addressRegex = /^[A-z][A-z0-9-_]{3,23}$/;
+// const firstnameRegex = /^[A-z][A-z0-9-_]{3,23}$/;
+// const lastnameRegex = /^[A-z][A-z0-9-_]{3,23}$/;
+// const addressRegex = /^[A-z][A-z0-9-_]{3,23}$/;
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
@@ -22,13 +22,13 @@ function SignUpForm() {
   const dobInputRef = useRef();
 
   const [enteredFirstname, setEnteredFirstName] = useState("");
-  const [validFirstName, setValidFirstName] = useState(false);
+  // const [validFirstName, setValidFirstName] = useState(false);
 
   const [enteredLastname, setEnteredLastName] = useState("");
-  const [validLastName, setValidLastName] = useState(false);
+  // const [validLastName, setValidLastName] = useState(false);
 
   const [enteredAddress, setEnteredAddress] = useState("");
-  const [validAddress, setValidAddress] = useState(false);
+  // const [validAddress, setValidAddress] = useState(false);
 
   const [enteredEmail, setEnteredEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -39,30 +39,26 @@ function SignUpForm() {
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState("");
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
 
+  const [isLoding, setIsLoading] = useState(false);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
+
     console.log("submitted");
 
-    // const enteredFirstNameInput = firstNameInputRef.current.value;
-    // const enteredLastNameInput = lastNameInputRef.current.value;
-    // const enteredEmailInput = emailInputRef.current.value;
-    // const enteredAddressInput = addressInputRef.current.value;
-    const enteredPasswordInput = passwordInputRef.current.value;
-    const enteredConfirmPasswordInput = confirmPasswordInputRef.current.value;
     const enteredDobInput = dobInputRef.current.value.replaceAll("-", "/");
 
     fetch("http://143.198.82.73:8000/v1/auth/users", {
       method: "POST",
       body: JSON.stringify({
-        // firstname: enteredFirstname,
-        // lastname: enteredLasttname,
         first_name: enteredFirstname,
         last_name: enteredLastname,
         email: enteredEmail,
         address: enteredAddress,
-        password: enteredPasswordInput,
-        confirm_password: enteredConfirmPasswordInput,
+        password: enteredPassword,
+        confirm_password: enteredConfirmPassword,
         dob: enteredDobInput,
         returnSecureToken: true,
       }),
@@ -70,7 +66,11 @@ function SignUpForm() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        setIsLoading(false);
+
+        response.json();
+      })
       .then((data) => {
         console.log("Success:", data);
         history("/login");
@@ -80,14 +80,10 @@ function SignUpForm() {
       });
   };
 
-  // useEffect(() => {
-  //   setValidPassword(passwordRegex.test(password));
-  // }, [password, confirm_password]);
-
   useEffect(() => {
-    setValidFirstName(firstnameRegex.test(enteredFirstname));
-    setValidLastName(lastnameRegex.test(enteredLastname));
-    setValidAddress(addressRegex.test(enteredAddress));
+    // setValidFirstName(firstnameRegex.test(enteredFirstname));
+    // setValidLastName(lastnameRegex.test(enteredLastname));
+    // setValidAddress(addressRegex.test(enteredAddress));
     setValidEmail(emailRegex.test(enteredEmail));
     setValidPassword(passwordRegex.test(enteredPassword));
     setValidConfirmPassword(enteredPassword === enteredConfirmPassword);
@@ -102,35 +98,18 @@ function SignUpForm() {
 
   return (
     <section className={classes.auth}>
-      <h1>Sign Up</h1>
+      <h1 className="text-xl font-bold pb-2">Sign Up and Start Learning</h1>
       <form onSubmit={submitHandler}>
-        {/* {!isLogin && (
-          <div className={classes.control}>
-            <label htmlFor="email">First Name</label>
-            <input
-              type="text"
-              id="firstname"
-              required
-              ref={firstnameInputRef}
-            />
-          </div>
-        )} */}
-        {/* {!isLogin && (
-          <div className={classes.control}>
-            <label htmlFor="email">Last Name</label>
-            <input type="text" id="lastname" required ref={lastnameInputRef} />
-          </div>
-        )} */}
         <div className={classes.control}>
           <label htmlFor="first_name">First Name</label>
-          <p
+          {/* <p
             id="uidnote"
             className={`${
               enteredFirstname && !validFirstName ? "block" : "hidden"
             } text-red-500 text-sm pb-2`}
           >
             4 to 24 characters. Must begin with a letter
-          </p>
+          </p> */}
           <input
             type="text"
             id="first_name"
@@ -143,14 +122,14 @@ function SignUpForm() {
         </div>
         <div className={classes.control}>
           <label htmlFor="last_name">Last Name</label>
-          <p
+          {/* <p
             id="uidnote"
             className={`${
               enteredLastname && !validLastName ? "block" : "hidden"
             } text-red-500 text-sm pb-2`}
           >
             4 to 24 characters. Must begin with a letter
-          </p>
+          </p> */}
           <input
             type="text"
             id="last_name"
@@ -179,14 +158,14 @@ function SignUpForm() {
         </div>
         <div className={classes.control}>
           <label htmlFor="address">Address</label>
-          <p
+          {/* <p
             id="uidnote"
             className={`${
               enteredAddress && !validAddress ? "block" : "hidden"
             } text-red-500 text-sm pb-2`}
           >
             4 to 24 characters. Must begin with a letter
-          </p>
+          </p> */}
           <input
             type="text"
             id="address"
@@ -214,13 +193,6 @@ function SignUpForm() {
             ref={passwordInputRef}
             onChange={(e) => setEnteredPassword(passwordInputRef.current.value)}
           />
-          {/* <p
-            className={`${
-              passwordFocus && !validPassword ? "show text" : "hide"
-            } text-red-500`}
-          >
-            in valid password
-          </p> */}
         </div>
         <div className={classes.control}>
           <label htmlFor="confirm_password">Confirm Password</label>
@@ -243,23 +215,14 @@ function SignUpForm() {
             required
             ref={confirmPasswordInputRef}
           />
-          {/* <p
-            className={`${
-              confirm_Password_Focus && !validPassword ? "show" : "hide"
-            } text-red-500`}
-          >
-            invalid confirmpassword
-          </p> */}
         </div>
         <div className={classes.control}>
           <label htmlFor="dob">Date of Birth</label>
           <input type="date" id="dob" required ref={dobInputRef} />
         </div>
         <div className={classes.actions}>
-          {/* <button>{isLogin ? 'Login' : 'Create Account'}</button>
-          {isLoding && <p>Sending Request...</p>} */}
-
           <button type="submit">Register</button>
+          {isLoding && <p className="text-white">Sending Request....</p>}
         </div>
       </form>
     </section>

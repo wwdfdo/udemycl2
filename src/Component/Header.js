@@ -49,49 +49,42 @@ function Header() {
       </div>
       <HiOutlineShoppingCart size={32} className="px-1 cursor-pointer" />
       {!isLoggedIn && (
-        <div className="px-1 cursor-pointer">
-          <a
-            href="#"
-            className="border-[1px] border-black h-[2.3rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-black font-bold"
-          >
-            <Link to="/login"> Login in</Link>
-          </a>
-        </div>
+        <Link to="/login" className="px-1 cursor-pointer">
+          {" "}
+          <div className=" border-[1px] border-black h-[2.4rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-black font-bold">
+            Login in
+          </div>
+        </Link>
       )}
       {isLoggedIn && (
-        <div className="px-1 cursor-pointer">
-          <a
-            href="#"
-            className="border-[1px] border-red-500 h-[2.3rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-red-500 font-bold"
-          >
-            <Link to="/login" onClick={logoutHandler}>
-              {" "}
-              Logout
-            </Link>
-          </a>
-        </div>
+        <Link
+          to="/login"
+          onClick={logoutHandler}
+          className="px-1 cursor-pointer"
+        >
+          <div className=" border-[1px] border-red-500 h-[2.4rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-red-500 font-bold">
+            {" "}
+            Logout
+          </div>{" "}
+        </Link>
       )}
       {/* <div className="px-1 cursor-pointer ">
         {" "}
         <a
           href=""
-          className="border-[1px] border-black h-[2.3rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-white bg-black font-bold"
+          className="border-[1px] border-black h-[2.4rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-white bg-black font-bold"
         >
           Sign up
         </a>
       </div> */}
+      <Link to="/register" className="px-1 cursor-pointer">
+        <div className=" border-[1px] border-black h-[2.4rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-white font-bold bg-black bg-opacity-90 hover:bg-opacity-100">
+          Sign up
+        </div>
+      </Link>
 
       <div className="px-1 cursor-pointer">
-        <a
-          href="#"
-          className="border-[1px] border-red-500 h-[2.3rem] min-w-[5rem] flex justify-center items-center text-sm tracking-tight  text-red-500 font-bold"
-        >
-          <Link to="/register"> Sign up</Link>
-        </a>
-      </div>
-
-      <div className="px-1 cursor-pointer">
-        <AiOutlineGlobal className="border-2 border-black h-[2.3rem] min-w-[2.3rem] p-1" />
+        <AiOutlineGlobal className="border-2 border-black h-[2.4rem] min-w-[2.4rem] p-1" />
       </div>
     </div>
   );
